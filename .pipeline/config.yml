@@ -1,16 +1,7 @@
-stages:
-  - name: Install
-    type: build
-    script:
-      - python -m pip install -r requirements.txt  # Install dependencies
-
-  - name: Test
-    type: test
-    script:
-      - pytest test/Test.py # Run Selenium tests
-
-resources:
-  - name: python
-    type: docker-image
-    parameters:
-      image: python:3.8-slim  # Use a lightweight Python image
+general:
+  steps:
+    build:
+      dockerImage: 'python:3.8-slim'
+      script:
+        - python -m pip install -r requirements.txt
+        - pytest test/Test.py
