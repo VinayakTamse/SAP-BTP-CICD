@@ -7,7 +7,7 @@ stages:
   - name: Test
     type: test
     script:
-      - pytest tests/ Test.py # Run Selenium tests
+      - pytest test/Test.py # Run Selenium tests
 
 resources:
   - name: python
