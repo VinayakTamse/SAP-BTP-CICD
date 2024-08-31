@@ -1,7 +1,41 @@
+---
 general:
-  steps:
-    build:
-      dockerImage: 'python:3.8-slim'
-      script:
-        - python -m pip install -r requirements.txt
-        - pytest test/Test.py
+  buildTool: "python"  # Specifies the build tool used; here, it's set for Python.
+
+service:
+  buildToolVersion: "python3.8"  # Specifies the version of Python to use.
+
+stages:
+  Build:
+    pythonExecuteLint: false  # Skipping linting as not needed here.
+    pythonInstallDependencies: true  # Ensures dependencies are installed from requirements.txt.
+
+  Acceptance:
+    cloudFoundryDeploy: false  # Skipping Cloud Foundry deployment.
+    pythonExecuteEndToEndTests: true  # Run Selenium end-to-end tests.
+
+  Malware Scan:
+    malwareExecuteScan: false  # Disables malware scanning if not needed.
+
+  Release:
+    tmsExport: false  # Skipping TMS export.
+    tmsUpload: false  # Skipping TMS upload.
+    cloudFoundryDeploy: false  # Skipping Cloud Foundry deployment.
+
+  Additional Unit Tests:
+    pythonExecuteUnitTests: false  # Run additional Python unit tests if any.
+
+  Compliance:
+    sonarExecuteScan: false  # Skipping SonarQube scan for code quality.
+
+steps:
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"  # Versioning type configuration for your pipeline.
+
+  pythonInstallDependencies:
+    script:
+      - python -m pip install -r requirements.txt  # Command to install dependencies from requirements.txt.
+
+  pythonExecuteEndToEndTests:
+    script:
+      - pytest test/Test.py  # Executes Selenium test cases located in the tests directory.
