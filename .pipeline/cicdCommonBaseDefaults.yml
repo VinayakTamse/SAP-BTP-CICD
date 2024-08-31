@@ -1,0 +1,7 @@
+general:
+  steps:
+    build:
+      dockerImage: 'python:3.8-slim'
+      script:
+        - python -m pip install -r requirements.txt
+        - pytest test/Test.py
