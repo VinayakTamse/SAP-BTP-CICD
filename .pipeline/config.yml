@@ -2,8 +2,12 @@
 general:
   buildTool: "python"  # Specifies the build tool used; here, it's set for Python.
 
-service:
-  buildToolVersion: "python3.7"  # Specifies the version of Python to use.
+resources:
+  # Specify a custom Docker image that contains Python 3.8 and other dependencies
+  - name: python
+    type: docker-image
+    parameters:
+      image: python:3.8-slim  # Official Python 3.8 image from Docker Hub
 
 stages:
   Build:
