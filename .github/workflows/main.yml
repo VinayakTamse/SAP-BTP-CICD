@@ -5,7 +5,7 @@ jobs:
  Python-Selenium-Test:
   runs-on: ubuntu-latest
   steps:
-   - run: pwd
+   - run: cd ..
    - run: python -m venv venv
    - run: pip install -r requirements.txt
    - run: pytest test/Test.py
