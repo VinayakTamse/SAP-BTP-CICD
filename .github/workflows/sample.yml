@@ -21,6 +21,7 @@ jobs:
 
   Deploy:
     runs-on: ubuntu-latest
+    needs: Test
     steps:
       - name: Execute Command 1
         run: echo Deployment Started
