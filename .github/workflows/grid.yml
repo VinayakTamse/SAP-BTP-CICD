@@ -5,19 +5,13 @@ on:
 
 jobs:
   Python-Selenium-Grid-Test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
-    services:
-      selenium-hub:
-        image: selenium/hub:4.0.0
-        ports:
-          - 4444:4444
-      chrome:
-        image: selenium/node-chrome:4.0.0
-        ports:
-          - 5900:5900
 
     steps:
+      - name: Initialize Docker File
+        run: docker-compose up
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
