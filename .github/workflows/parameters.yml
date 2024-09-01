@@ -1,0 +1,27 @@
+name: Test Parameters
+run-name: ${{ github.actor }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      value_test:
+        description: Enter Your test value
+        type: string
+        required: true
+
+
+jobs:
+  Print-Test_Value:
+    runs-on: windows-latest
+
+    steps:
+      - name: Print Entered Value
+        run: echo "Entered Value is ${{ github.event.inputs.value_test }}"
+
+  Done:
+    runs-on: windows-latest
+
+    steps:
+      - name: Finished Job
+        run: echo Value Obtained
+
