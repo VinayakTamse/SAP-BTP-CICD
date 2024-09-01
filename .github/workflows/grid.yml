@@ -9,6 +9,9 @@ jobs:
 
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Check Files and Directory
         run: ls -lrt
 
@@ -20,9 +23,6 @@ jobs:
           sudo chmod +x /usr/local/bin/docker-compose
           docker-compose --version
           docker-compose -f docker-compose.yml up
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
       - name: Install Packages
         run: |
