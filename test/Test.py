@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import ChromiumOptions
 from utility.Utils import wait_for
 import time
 
@@ -8,7 +9,9 @@ import time
 
 def test_login_main():
 
-    driver = webdriver.Chrome()
+    options = ChromiumOptions()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(options=options)
     driver.maximize_window()
     driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     driver.implicitly_wait(60)
