@@ -13,6 +13,7 @@ jobs:
         run: |
           pwd
           docker --version
+          docker docker-compose up -d
 
       - name: Checkout repository
         uses: actions/checkout@v4
