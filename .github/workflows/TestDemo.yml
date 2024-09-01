@@ -1,0 +1,31 @@
+name: Test Demo
+
+on: [push, workflow_dispatch]
+
+jobs:
+  Design:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Design
+        run: echo Testing...
+
+  Develope:
+    needs: Design
+    runs-on: ubuntu-latest
+    steps:
+      - name: Develope
+        run: echo Testing...
+
+  Test:
+    needs: Develope
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testing
+        run: echo Testing...
+
+  Deploy:
+    needs: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo Testing...

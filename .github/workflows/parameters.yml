@@ -19,6 +19,7 @@ jobs:
         run: echo "Entered Value is ${{ github.event.inputs.value_test }}"
 
   Done:
+    needs: Print-Test_Value
     runs-on: windows-latest
 
     steps:
