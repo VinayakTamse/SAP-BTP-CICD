@@ -1,10 +1,9 @@
 name: Selenium-Tests
 on:
-     workflow_dispatch:
-
+ workflow_dispatch:
 jobs:
-     Python Selenium Test:
-         runs-on: ubuntu-latest
-         steps:
-             - run: pip install -r requirements.txt
-             - run: pytest test/Test.py
+ Python-Selenium-Test:
+  runs-on: ubuntu-latest
+  steps:
+   - run: pip install -r requirements.txt
+   - run: pytest test/Test.py
