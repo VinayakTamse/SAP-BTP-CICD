@@ -1,11 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import ChromiumOptions
 from utility.Utils import wait_for
 import time
 
 def test_execute_grid():
+    options = ChromiumOptions()
     hub_url = "http://localhost:4444/wd/hub"
-    driver = webdriver.Remote(command_executor=hub_url)
+    driver = webdriver.Remote(command_executor=hub_url, options=options)
     driver.maximize_window()
     driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     driver.implicitly_wait(60)
