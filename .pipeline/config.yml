@@ -1,43 +1,27 @@
----
-general:
-  buildTool: "python"  # Specifies the build tool used; here, it's set for Python.
-
-resources:
-  # Specify a custom Docker image that contains Python 3.8 and other dependencies
-  - name: python
-    type: docker-image
-    parameters:
-      image: python:3.8-slim  # Official Python 3.8 image from Docker Hub
+pipeline:
+  name: My Python Pipeline
+  description: Run Python script in SAP BTP
+  trigger:
+    - push
 
 stages:
-  Build:
-    pythonInstallDependencies: true  # Ensures dependencies are installed from requirements.txt.
-
-  Acceptance:
-    pythonExecuteEndToEndTests: true  # Run Selenium end-to-end tests.
-
-  Malware Scan:
-    malwareExecuteScan: false  # Disables malware scanning if not needed.
-
-  Release:
-    tmsExport: false  # Skipping TMS export.
-    tmsUpload: false  # Skipping TMS upload.
-    cloudFoundryDeploy: false  # Skipping Cloud Foundry deployment.
-
-  Additional Unit Tests:
-    pythonExecuteUnitTests: false  # Run additional Python unit tests if any.
-
-  Compliance:
-    sonarExecuteScan: false  # Skipping SonarQube scan for code quality.
+  - build
+  - run
 
 steps:
-  artifactPrepareVersion:
-    versioningType: "cloud_noTag"  # Versioning type configuration for your pipeline.
+  - stage: build
+    steps:
+      - name: Install Dependencies
+        run: |  
+          pip install -r requirements.txt
+  - stage: run
+    steps:
+      - name: Run Python Script
+        run: |  
+          python my_script.py  
 
-  pythonInstallDependencies:
-    script:
-      - python -m pip install -r requirements.txt  # Command to install dependencies from requirements.txt.
-
-  pythonExecuteEndToEndTests:
-    script:
-      - pytest test/Test.py  # Executes Selenium test cases located in the tests directory.
+environment:
+  - name: PYTHON_VERSION
+    value: 3.9.5
+  - name: PIP_VERSION
+    value: 21.0.1
