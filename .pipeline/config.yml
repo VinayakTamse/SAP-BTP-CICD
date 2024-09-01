@@ -11,11 +11,9 @@ resources:
 
 stages:
   Build:
-    pythonExecuteLint: false  # Skipping linting as not needed here.
     pythonInstallDependencies: true  # Ensures dependencies are installed from requirements.txt.
 
   Acceptance:
-    cloudFoundryDeploy: false  # Skipping Cloud Foundry deployment.
     pythonExecuteEndToEndTests: true  # Run Selenium end-to-end tests.
 
   Malware Scan:
