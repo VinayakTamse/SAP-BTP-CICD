@@ -5,7 +5,7 @@ on:
 
 jobs:
   Python-Selenium-Grid-Test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
 
     steps:
@@ -13,7 +13,10 @@ jobs:
         run: |
           pwd
           docker --version
-          docker-compose -f docker-compose.yml up
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          docker-compose --version
+          docker-compose up
 
       - name: Checkout repository
         uses: actions/checkout@v4
