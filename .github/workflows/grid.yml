@@ -9,6 +9,9 @@ jobs:
 
 
     steps:
+      - name: Check Files and Directory
+        run: ls -lrt
+
       - name: Initialize Docker File
         run: |
           pwd
