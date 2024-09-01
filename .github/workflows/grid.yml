@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Initialize Docker File
-        run: docker-compose up
+        run: docker compose up -d
 
       - name: Checkout repository
         uses: actions/checkout@v4
