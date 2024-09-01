@@ -27,4 +27,4 @@ jobs:
         chrome-version: 'latest'
 
     - name: Run tests
-      run: pytest test/Test.py
+      run: pytest -s test/Test.py
