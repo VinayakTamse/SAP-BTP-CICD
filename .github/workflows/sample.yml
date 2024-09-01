@@ -1,0 +1,29 @@
+name: Sample Github Action Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Command 1
+        run: echo Hello World
+
+      - name: Execute Command 2
+        run: echo Test Hello World
+
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Command 1
+        run: echo Test Started
+
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Command 1
+        run: echo Deployment Started
+
+
+
