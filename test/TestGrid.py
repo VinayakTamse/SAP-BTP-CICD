@@ -6,6 +6,7 @@ import time
 
 def test_execute_grid():
     options = ChromiumOptions()
+    options.browser_version = 'stable'
     hub_url = "http://localhost:4444/wd/hub"
     driver = webdriver.Remote(command_executor=hub_url, options=options)
     driver.maximize_window()
