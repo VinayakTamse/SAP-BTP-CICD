@@ -14,10 +14,6 @@ jobs:
           - 4444:4444
       chrome:
         image: selenium/node-chrome:4.0.0
-        depends_on:
-          - selenium-hub
-        environment:
-          - HUB_HOST=selenium-hub
         ports:
           - 5900:5900
 
