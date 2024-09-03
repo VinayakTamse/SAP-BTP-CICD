@@ -9,12 +9,12 @@ jobs:
 
     services:
       selenium-hub:
-        image: selenium/hub:4.8.0
+        image: selenium/hub:4.24.0
         ports:
           - 4444:4444
 
       chrome:
-        image: selenium/node-chrome:4.8.0
+        image: selenium/node-chrome:4.24.0
         volumes:
           - /dev/shm:/dev/shm
         env:
