@@ -8,7 +8,7 @@ def test_execute_grid():
 
     hub_url = "http://localhost:4444/wd/hub"
     options = ChromiumOptions()
-    options.set_capability('browserVersion', '128')
+    #options.set_capability('browserVersion', '128')
     options.add_argument('--headless')
     driver = webdriver.Remote(command_executor=hub_url, options=options)
     driver.maximize_window()
