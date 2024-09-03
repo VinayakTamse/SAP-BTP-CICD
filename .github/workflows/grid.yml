@@ -19,7 +19,7 @@ jobs:
         run: |
           pwd
           docker --version
-          docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-chrome:4.20.0-20240830
+          docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-chrome:4.19.0-20240830
 #          sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 #          sudo chmod +x /usr/local/bin/docker-compose
 #          docker-compose --version
