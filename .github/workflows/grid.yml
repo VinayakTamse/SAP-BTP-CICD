@@ -7,6 +7,21 @@ jobs:
   Python-Selenium-Grid-Test:
     runs-on: ubuntu-latest
 
+    services:
+      selenium-hub:
+        image: selenium/hub:4.8.0
+        ports:
+          - 4444:4444
+
+      chrome:
+        image: selenium/node-chrome:4.8.0
+        volumes:
+          - /dev/shm:/dev/shm
+        env:
+          HUB_HOST: selenium-hub
+          HUB_PORT: 4444
+        options: --shm-size="2g"
+
 
     steps:
       - name: Checkout repository
@@ -18,8 +33,6 @@ jobs:
       - name: Initialize Docker File
         run: |
           pwd
-          docker --version
-          docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-chrome:4.19.0-20240830
 #          sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 #          sudo chmod +x /usr/local/bin/docker-compose
 #          docker-compose --version
