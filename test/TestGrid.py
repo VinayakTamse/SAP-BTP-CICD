@@ -8,8 +8,8 @@ def test_execute_grid():
 
     hub_url = "http://localhost:4444/wd/hub"
     options = ChromiumOptions()
-    #options.set_capability('browserVersion', '128')
-    options.add_argument('--headless')
+    options.set_capability('browserVersion', '125')
+    #options.add_argument('--headless')
     driver = webdriver.Remote(command_executor=hub_url, options=options)
     driver.maximize_window()
     driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
