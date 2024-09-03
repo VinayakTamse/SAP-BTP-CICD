@@ -6,7 +6,7 @@ on:
 jobs:
 
   Python-Selenium-Grid-Test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
 
     services:
