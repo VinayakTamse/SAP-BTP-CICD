@@ -7,7 +7,7 @@ import time
 
 def test_execute_grid():
 
-    hub_url = "http://localhost:4444/wd/hub"
+    hub_url = "http://localhost:4444"
     chrome_options = Options()
     chrome_options.set_capability('browserVersion', 'latest')
     chrome_options.set_capability('platformName', 'LINUX')
