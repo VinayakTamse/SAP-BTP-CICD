@@ -21,9 +21,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Initialize Docker File
+      - name: Start Hub and Node
         run: |
-          docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-chrome:4.24.0-20240830
+          java -jar selenium-server-4.24.0.jar hub
+          java -jar selenium-server-4.24.0.jar node --port 5555
+          
 
 #          sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 #          sudo chmod +x /usr/local/bin/docker-compose
