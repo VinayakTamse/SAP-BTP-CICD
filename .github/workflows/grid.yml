@@ -4,16 +4,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  InstallDocker:
-    runs-on: macos-latest
-
-    steps:
-      - name: Installing docker
-        run: brew install docker
 
   Python-Selenium-Grid-Test:
     runs-on: macos-latest
-    needs: InstallDocker
 
 
     services:
