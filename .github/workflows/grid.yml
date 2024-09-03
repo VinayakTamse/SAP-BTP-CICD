@@ -16,6 +16,11 @@ jobs:
       - name: Check Files and Directory
         run: ls -lrt
 
+      - name: Install Packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: Initialize Docker File
         run: |
           pwd
@@ -30,11 +35,6 @@ jobs:
 #          sudo chmod +x /usr/local/bin/docker-compose
 #          docker-compose --version
 #          docker-compose -f docker-compose.yml up
-
-      - name: Install Packages
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
 
       - name: Execute Scripts
         run:
