@@ -3,18 +3,11 @@ services:
   selenium-hub:
     image: selenium/hub:latest
     environment:
-      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
-      - JAVA_OPTS="-Dselenium.telemetry.enabled=true"
+      - SE_OPTS=--disable-telemetry
   chrome:
     image: selenium/node-chrome:latest
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
-      - JAVA_OPTS="-Dselenium.telemetry.enabled=true"
-  jaeger:
-    image: jaegertracing/all-in-one:latest
-    ports:
-      - "16686:16686"
-      - "4317:4317"
+      - SE_OPTS=--disable-telemetry
