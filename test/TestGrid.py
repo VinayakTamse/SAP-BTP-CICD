@@ -1,16 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import ChromiumOptions
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from utility.Utils import wait_for
 import time
 
 def test_execute_grid():
 
     hub_url = "http://localhost:4444/wd/hub"
-    options = ChromiumOptions()
-    options.set_capability('browserVersion', '125')
+    chrome_options = Options()
+    chrome_options.set_capability('browserVersion', '126')
+    chrome_options.set_capability('platformName', 'LINUX')
     #options.add_argument('--headless')
-    driver = webdriver.Remote(command_executor=hub_url, options=options)
+    driver = webdriver.Remote(command_executor=hub_url, options=chrome_options)
     driver.maximize_window()
     driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     driver.implicitly_wait(60)
